@@ -5,7 +5,7 @@ from spellutil import mispelled
 """
 Calls the outside API for a body of text, and checks for spelling errors.
 
-Return the MD5 of the concatenated misspelled words.
+Determines the MD5 of the concatenated misspelled words.
 """
 response = requests.get('https://outside-interview.herokuapp.com/document')
 if response.status_code not in range(200, 299):
@@ -14,5 +14,5 @@ if response.status_code not in range(200, 299):
 
 mispelled_words = mispelled(response.text)
 
-print(mispelled_words)
+# MD5 Hash:
 print(hashlib.md5(mispelled_words).encode('utf-8').hexdigest())

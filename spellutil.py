@@ -23,7 +23,6 @@ def mispelled(text):
             if t in incorrectly_spelled_words:
                 mispelled_words_concatenated += t
                 return
-            print("looking up:", t)
             response = requests.get(
                 'https://outside-interview.herokuapp.com/spelling/' + t)
             if response.status_code == 204:
